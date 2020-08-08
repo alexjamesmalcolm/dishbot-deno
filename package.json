@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node dist/app.js",
     "build": "tsc",
+    "deploy": "npm clean-install && npm run build && npm start",
     "dev": "concurrently \"tsc -w\" \"nodemon dist/index.js\""
   },
   "author": "",
