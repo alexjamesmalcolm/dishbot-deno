@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: 
+spec:
+  rules:
+  - host: dishbot.alexjamesmalcolm.com
+    http:
+      paths:
+      - backend:
+          serviceName: {{ .Values.service.name }}
+          servicePort: {{ .Values.service.internalPort }}
+        path: /
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - dishbot.alexjamesmalcolm.com
+status:
+  loadBalancer:
+    ingress:
+    - ip: 192.168.0.101
