@@ -6,7 +6,7 @@ appName: dishbot
 image:
   repository: alexjamesmalcolm/dishbot-node
   tag: latest
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   # for local development against Minikube registry
   #pullPolicy: Never    
 service:
