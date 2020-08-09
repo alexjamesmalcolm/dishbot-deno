@@ -1,4 +1,4 @@
-FROM node
+FROM arm32v7/node
 
 EXPOSE 3000
 
