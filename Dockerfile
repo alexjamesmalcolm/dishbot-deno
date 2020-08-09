@@ -1,4 +1,4 @@
-FROM arm32v7/node
+FROM amd64/node
 
 EXPOSE 3000
 
