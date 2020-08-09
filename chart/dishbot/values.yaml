@@ -4,7 +4,7 @@
 replicaCount: 1
 appName: dishbot
 image:
-  repository: alexjamesmalcolm/dishbot-node
+  repository: alexjamesmalcolm/dishbot
   tag: latest
   pullPolicy: Always
   # for local development against Minikube registry
