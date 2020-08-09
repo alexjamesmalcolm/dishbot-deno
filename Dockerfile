@@ -11,7 +11,7 @@ RUN npm run build
 
 RUN rm -rf node_modules
 
-FROM arm64v8/node
+FROM arm32v7/node
 
 WORKDIR /dishbot
 COPY --from=0 /dishbot/dist ./dist
