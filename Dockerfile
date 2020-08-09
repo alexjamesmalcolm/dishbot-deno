@@ -1,24 +1,14 @@
 FROM node
 
+EXPOSE 3000
+
 WORKDIR /dishbot
 COPY package.json .
 COPY package-lock.json .
 RUN npm clean-install --only=prod
 
-COPY src .
-COPY tsconfig.json .
-RUN npm run build
+COPY src ./src
 
-# RUN rm -rf node_modules
-
-# FROM arm32v7/node
-
-# WORKDIR /dishbot
-# COPY --from=0 /dishbot/dist ./dist
-# COPY package.json .
-# COPY package-lock.json .
-
-# RUN npm clean-install --only=prod
-
-EXPOSE 3000
+RUN pwd
+RUN ls
 ENTRYPOINT [ "npm", "start" ]
