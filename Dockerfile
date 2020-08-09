@@ -9,6 +9,4 @@ RUN npm clean-install --only=prod
 
 COPY src ./src
 
-RUN pwd
-RUN ls
 ENTRYPOINT [ "npm", "start" ]
