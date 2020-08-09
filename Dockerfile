@@ -1,4 +1,5 @@
-FROM amd64/node
+FROM arm64v8/node
+COPY qemu-arm-static /usr/bin
 
 EXPOSE 3000
 
