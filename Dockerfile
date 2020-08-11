@@ -4,9 +4,9 @@ WORKDIR /builder
 ENV QEMU_VERSION 5.0.0
 ADD https://download.qemu.org/qemu-${QEMU_VERSION}.tar.xz ./qemu-${QEMU_VERSION}.tar.xz
 RUN tar xJf qemu-${QEMU_VERSION}.tar.xz
-RUN ls
-RUN pwd
 WORKDIR /builder/qemu-${QEMU_VERSION}
+RUN ls /usr/bin
+RUN ls
 RUN ./configure
 RUN make
 RUN uname -m
