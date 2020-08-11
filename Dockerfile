@@ -1,19 +1,32 @@
-FROM debian
+FROM python
 WORKDIR /builder
+ENV QEMU_VERSION qemu-5.1.0-rc3
+ADD https://download.qemu.org/${QEMU_VERSION}.tar.xz ./${QEMU_VERSION}.tar.xz
+RUN tar xJf ${QEMU_VERSION}.tar.xz
+RUN ls
+RUN pwd
+WORKDIR /builder/${QEMU_VERSION}
+RUN ./configure
+RUN make
+RUN find / -name *qemu*
+RUN uname -m
+RUN ls /usr/bin
+RUN find / -name *qemu*
+RUN ls
+RUN find / -name *qemu*
+RUN ls /usr/bin
 
-ADD https://github.com/balena-io/qemu/releases/download/v4.0.0%2Bbalena2/qemu-4.0.0.balena2-aarch64.tar.gz ./qemu.tar.gz
-RUN tar -zxvf qemu.tar.gz
-RUN mv qemu-4.0.0+balena2-aarch64/qemu-aarch64-static .
+# FROM arm64v8/node
+# WORKDIR /dishbot
+# EXPOSE 3000
 
-FROM arm64v8/node
-WORKDIR /dishbot
-EXPOSE 3000
+RUN uname -m
 
-COPY --from=0 /builder/qemu-aarch64-static /usr/bin
-COPY package.json .
-COPY package-lock.json .
-RUN npm clean-install --only=prod
+# COPY --from=0 /builder/qemu-aarch64-static /usr/bin
+# COPY package.json .
+# COPY package-lock.json .
+# RUN npm clean-install --only=prod
 
-COPY src ./src
+# COPY src ./src
 
-ENTRYPOINT [ "npm", "start" ]
+# ENTRYPOINT [ "npm", "start" ]
