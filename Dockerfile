@@ -1,4 +1,4 @@
-FROM python:2
+FROM python
 WORKDIR /builder
 ENV QEMU_VERSION 5.0.0
 ADD https://download.qemu.org/qemu-${QEMU_VERSION}.tar.xz ./qemu-${QEMU_VERSION}.tar.xz
