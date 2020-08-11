@@ -1,4 +1,5 @@
-FROM python
+FROM arm64v8/python
+RUN uname -m
 WORKDIR /builder
 ENV QEMU_VERSION 5.0.0
 ADD https://download.qemu.org/qemu-${QEMU_VERSION}.tar.xz ./qemu-${QEMU_VERSION}.tar.xz
@@ -11,7 +12,6 @@ RUN make
 RUN uname -m
 RUN ls /usr/bin
 RUN ls
-RUN ls /usr/bin
 
 # FROM arm64v8/node
 # WORKDIR /dishbot
