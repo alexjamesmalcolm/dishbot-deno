@@ -1,4 +1,4 @@
-FROM arm64v8/python
+FROM python
 RUN uname -m
 WORKDIR /builder
 ENV QEMU_VERSION 5.0.0
