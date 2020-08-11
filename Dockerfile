@@ -1,11 +1,11 @@
 FROM python:2
 WORKDIR /builder
-ENV QEMU_VERSION qemu-1.4.2
-ADD https://download.qemu.org/${QEMU_VERSION}.tar.xz ./${QEMU_VERSION}.tar.xz
-RUN tar xJf ${QEMU_VERSION}.tar.xz
+ENV QEMU_VERSION 5.0.0
+ADD https://download.qemu.org/qemu-${QEMU_VERSION}.tar.xz ./qemu-${QEMU_VERSION}.tar.xz
+RUN tar xJf qemu-${QEMU_VERSION}.tar.xz
 RUN ls
 RUN pwd
-WORKDIR /builder/${QEMU_VERSION}
+WORKDIR /builder/qemu-${QEMU_VERSION}
 RUN ./configure
 RUN make
 RUN uname -m
